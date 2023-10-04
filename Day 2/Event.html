@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event</title>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      height="300"
+      width="300"
+      style="background-color: black"
+    >
+    </canvas>
+  </body>
+  <script>
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+
+    canvas.addEventListener("mousemove", (e) => {
+      context.clearRect(0, 0, 300, 300);
+      context.beginPath();
+      context.fillStyle = "yellow";
+      context.arc(e.clientX, e.clientY, 30, 0, 360);
+
+      context.fill();
+      context.beginPath();
+      context.fillStyle = "red";
+      context.arc(e.clientX, e.clientY, 20, 0, 360);
+
+      context.fill();
+
+      context.beginPath();
+      context.fillStyle = "green";
+      context.arc(e.clientX, e.clientY, 10, 10, 80);
+
+      context.fill();
+      console.log(e.clientX);
+    });
+
+    //clientX and clientY can find the where the
+
+    // used circle for paint
+  </script>
+</html>
