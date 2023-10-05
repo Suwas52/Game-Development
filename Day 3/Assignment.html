@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ball Down</title>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      height="300"
+      width="300"
+      style="background-color: black"
+    ></canvas>
+  </body>
+  <script>
+    const canvas = document.getElementById("canvas");
+    const c = canvas.getContext("2d");
+
+    document.addEventListener("click", (e) => {
+      let x = e.clientX;
+      let y = e.clientY;
+      function renderBox() {
+        c.beginPath();
+        c.arc(x, y, 15, 0, 360);
+        c.fillStyle = "blue";
+        c.fill();
+
+        c.beginPath();
+        c.arc(x, y, 10, 0, 360);
+        c.fillStyle = "red";
+        c.fill();
+
+        c.beginPath();
+        c.arc(x, y, 5, 0, 360);
+        c.fillStyle = "yellow";
+        c.fill();
+
+        y++;
+        if (y >= 300) {
+          y = 0;
+        }
+      }
+
+      function update() {
+        c.clearRect(0, 0, 300, 300);
+        renderBox();
+        window.requestAnimationFrame(update);
+      }
+
+      update();
+    });
+  </script>
+</html>
