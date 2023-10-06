@@ -53,7 +53,7 @@ class Particle {
   draw() {
     c.beginPath();
     c.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-    c.fillStyle = "red";
+    c.fillStyle = "green";
     c.fill();
   }
 
